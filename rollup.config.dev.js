@@ -14,5 +14,14 @@ export default {
       format: 'cjs'
     },
   ],
-  plugins: [typescript()]
+  plugins: [typescript({
+    tsconfig: './tsconfig.json',
+    compilerOptions: {
+      "target": "es2020",
+      "outDir": "lib",
+      "rootDir": "src",
+      "declaration": true,
+      "declarationDir": "lib/types",
+    },
+  })]
 };

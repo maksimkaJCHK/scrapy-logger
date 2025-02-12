@@ -3,5 +3,7 @@
     "target": "es2020",
     "outDir": "lib",
     "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "./lib",
   },
 }
