@@ -1,2 +1,4 @@
-# ts-logger
-type scrapy logger
+# Ts-logger
+
+English | [Русский](./README.ru.md) 
+

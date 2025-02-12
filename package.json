@@ -1,0 +1,33 @@
+{
+  "name": "ts-logger",
+  "version": "0.0.1",
+  "description": "type scrapy logger",
+  "main": "lib/ts-logger.js",
+  "type": "module",
+  "scripts": {
+    "compile:dev": "rollup -c ./rollup.config.dev.js -w",
+    "compile:prod": "rollup -c ./rollup.config.prod.js"
+  },
+  "keywords": [
+    "logger",
+    "type logger",
+    "terminal logger",
+    "scrapy logger",
+    "simple logger",
+    "node.js logger"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maksimkaJCHK/ts-logger.git"
+  },
+  "author": "Maksim Zhuchkov",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "rollup": "^4.34.6",
+    "rollup-plugin-sizes": "^1.1.0",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "tslib": "^2.8.1"
+  }
+}
