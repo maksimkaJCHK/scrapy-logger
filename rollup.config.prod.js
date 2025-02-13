@@ -16,9 +16,6 @@ const typePlagins = [
     output: {
       comments: false,
     },
-    compress: {
-      drop_console: true,
-    },
   }),
   sizes(),
   visualizer({
