@@ -4,6 +4,13 @@ import terser from '@rollup/plugin-terser';
 import sizes from "rollup-plugin-sizes";
 import { visualizer } from "rollup-plugin-visualizer";
 
+import {
+  input,
+  file,
+  fileCJS,
+  declarationDir
+} from './rollup.var.js';
+
 const typePlagins = [
   terser({
     output: {
@@ -22,9 +29,9 @@ const typePlagins = [
 
 export default [
   {
-    input: './src/logger.ts',
+    input,
     output: {
-      file: './lib/ts-logger.js',
+      file,
       format: 'es'
     },
     plugins: [
@@ -35,16 +42,16 @@ export default [
     ]
   },
   {
-    input: './src/logger.ts',
+    input,
     output: {
-      file: './lib/cjs/ts-logger.js',
+      file: fileCJS,
       format: 'cjs'
     },
     plugins: [
       typescript({
         tsconfig: './tsconfig.json',
         compilerOptions: {
-          declarationDir: "./lib/cjs",
+          declarationDir,
         }
       }),
       ...typePlagins

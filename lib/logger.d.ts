@@ -18,5 +18,4 @@ declare class Logger extends LoggerServices {
     oneWarn(mes: any): void;
     oneError(mes: any): void;
 }
-declare const _default: Logger;
-export default _default;
+export default Logger;

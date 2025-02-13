@@ -87,4 +87,4 @@ class Logger extends LoggerServices {
   }
 }
 
-export default new Logger();
+export default Logger;
