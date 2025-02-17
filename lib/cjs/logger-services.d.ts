@@ -1,53 +1,5 @@
 declare class LoggerServices {
-    _isTime: boolean;
-    _isDate: boolean;
-    _isFullYear: boolean;
-    _isBg: boolean;
-    _colors: {
-        reset: string;
-        bright: string;
-        dim: string;
-        underscore: string;
-        blink: string;
-        reverse: string;
-        hidden: string;
-        fg: {
-            black: string;
-            red: string;
-            brightRed: string;
-            green: string;
-            brightGreen: string;
-            yellow: string;
-            brightYellow: string;
-            blue: string;
-            brightBlue: string;
-            magenta: string;
-            brightMagenta: string;
-            cyan: string;
-            white: string;
-            brightWhite: string;
-            gray: string;
-            crimson: string;
-        };
-        bg: {
-            black: string;
-            red: string;
-            brightRed: string;
-            green: string;
-            brightGreen: string;
-            yellow: string;
-            brightYellow: string;
-            blue: string;
-            brightBlue: string;
-            magenta: string;
-            brightMagenta: string;
-            cyan: string;
-            white: string;
-            brightWhite: string;
-            gray: string;
-            crimson: string;
-        };
-    };
+    #private;
     space(): void;
     clear(): void;
     group(nameGroup?: string): void;
@@ -62,12 +14,7 @@ declare class LoggerServices {
     enableDate(): void;
     disableTimePeriod(): void;
     enableTimePeriod(): void;
-    bNumb(numb: number): string;
-    bDate(date: Date): string;
-    bTime(date: Date): string;
     bTimePeriod(): string;
-    bConsoleText(mes: any, color: string): void;
-    bConsoleBg(mes: any, color: string): void;
-    bConsole(mes: any, color: string): void;
+    protected bConsole(mes: any, color: string): void;
 }
 export default LoggerServices;

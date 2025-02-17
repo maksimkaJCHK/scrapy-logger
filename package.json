@@ -5,8 +5,8 @@
   "main": "lib/ts-logger.js",
   "type": "module",
   "scripts": {
-    "compile:dev": "rollup -c ./rollup.config.dev.js -w",
-    "compile:prod": "rollup -c ./rollup.config.prod.js"
+    "dev": "rollup -c ./rollup.config.dev.js -w",
+    "prod": "rollup -c ./rollup.config.prod.js"
   },
   "keywords": [
     "logger",
