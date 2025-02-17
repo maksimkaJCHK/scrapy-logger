@@ -1,19 +1,19 @@
 declare class LoggerServices {
     #private;
-    space(): void;
-    clear(): void;
-    group(nameGroup?: string): void;
-    endGroup(): void;
-    disableBg(): void;
-    enableBg(): void;
-    disableFullYear(): void;
-    enableFullYear(): void;
-    disableTime(): void;
-    enableTime(): void;
-    disableDate(): void;
-    enableDate(): void;
-    disableTimePeriod(): void;
-    enableTimePeriod(): void;
+    space(): this;
+    clear(): this;
+    group(nameGroup?: string): this;
+    endGroup(): this;
+    disableBg(): this;
+    enableBg(): this;
+    disableFullYear(): this;
+    enableFullYear(): this;
+    disableTime(): this;
+    enableTime(): this;
+    disableDate(): this;
+    enableDate(): this;
+    disableTimePeriod(): this;
+    enableTimePeriod(): this;
     bTimePeriod(): string;
     protected bConsole(mes: any, color: string): void;
 }

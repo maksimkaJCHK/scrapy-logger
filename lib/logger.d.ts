@@ -1,11 +1,11 @@
 import LoggerServices from './logger-services.js';
 declare class Logger extends LoggerServices {
-    type(mes: any): void;
-    mes(mes: any): void;
-    info(mes: any): void;
-    success(mes: any): void;
-    warn(mes: any): void;
-    error(mes: any): void;
+    type(mes: any): this;
+    mes(mes: any): this;
+    info(mes: any): this;
+    success(mes: any): this;
+    warn(mes: any): this;
+    error(mes: any): this;
     typeBg(mes: any): void;
     mesBg(mes: any): void;
     infoBg(mes: any): void;

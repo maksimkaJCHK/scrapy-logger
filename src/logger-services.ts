@@ -50,62 +50,90 @@ class LoggerServices {
     }
   }
 
-  space(): void {
+  space(): this {
     console.log();
+
+    return this;
   }
 
-  clear(): void {
+  clear(): this {
     console.clear();
+
+    return this;
   }
 
-  group(nameGroup: string = ''): void {
+  group(nameGroup: string = ''): this {
     console.group(nameGroup);
+
+    return this;
   }
 
-  endGroup(): void {
+  endGroup(): this {
     console.groupEnd();
+
+    return this;
   }
 
-  disableBg(): void {
+  disableBg(): this {
     this.#isBg = false;
+
+    return this;
   }
 
-  enableBg(): void {
+  enableBg(): this {
     this.#isBg = true;
+
+    return this;
   }
 
-  disableFullYear(): void {
+  disableFullYear(): this {
     this.#isFullYear = false;
+
+    return this;
   }
 
-  enableFullYear(): void {
+  enableFullYear(): this {
     this.#isFullYear = true;
+
+    return this;
   }
 
-  disableTime(): void {
+  disableTime(): this {
     this.#isTime = false;
+
+    return this;
   }
 
-  enableTime(): void {
+  enableTime(): this {
     this.#isTime = true;
+
+    return this;
   }
 
-  disableDate(): void {
+  disableDate(): this {
     this.#isDate = false;
+
+    return this;
   }
 
-  enableDate(): void {
+  enableDate(): this {
     this.#isDate = true;
+
+    return this;
   }
 
-  disableTimePeriod(): void {
+  disableTimePeriod(): this {
     this.#isDate = false;
     this.#isTime = false;
+
+    return this;
   }
 
-  enableTimePeriod(): void {
+  enableTimePeriod(): this {
     this.#isDate = true;
     this.#isTime = true;
+
+    return this;
   }
 
   // Для построения времени

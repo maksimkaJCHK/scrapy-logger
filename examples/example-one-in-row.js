@@ -1,5 +1,10 @@
 import logger from '../lib/ts-logger.js';
-import delayF from '../services/delay.js';
+
+const delayF = (delay = 400) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, delay);
+  });
+};
 
 const oneInRow = async () => {
   let count = 0;

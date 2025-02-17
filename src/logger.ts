@@ -1,28 +1,40 @@
 import LoggerServices from './logger-services.js';
 
 class Logger extends LoggerServices {
-  type(mes: any): void {
+  type(mes: any): this {
     this.bConsole(mes, 'brightWhite');
+
+    return this;
   }
 
-  mes(mes: any): void {
+  mes(mes: any): this {
     this.bConsole(mes, 'brightMagenta');
+
+    return this;
   }
 
-  info(mes: any): void {
+  info(mes: any): this {
     this.bConsole(mes, 'brightBlue');
+
+    return this;
   }
 
-  success(mes: any): void {
+  success(mes: any): this {
     this.bConsole(mes, 'brightGreen');
+
+    return this;
   }
 
-  warn(mes: any): void {
+  warn(mes: any): this {
     this.bConsole(mes, 'brightYellow');
+
+    return this;
   }
 
-  error(mes: any): void {
+  error(mes: any): this {
     this.bConsole(mes, 'brightRed');
+
+    return this;
   }
 
   typeBg(mes: any): void {
