@@ -1,10 +1,10 @@
 class LoggerServices {
-  _isTime = true;
-  _isDate = true;
-  _isFullYear = false;
-  _isBg = false;
+  #isTime = true;
+  #isDate = true;
+  #isFullYear = false;
+  #isBg = false;
 
-  _colors = {
+  #colors = {
     reset: "\x1b[0m",
     bright: "\x1b[1m",
     dim: "\x1b[2m",
@@ -67,66 +67,66 @@ class LoggerServices {
   }
 
   disableBg(): void {
-    this._isBg = false;
+    this.#isBg = false;
   }
 
   enableBg(): void {
-    this._isBg = true;
+    this.#isBg = true;
   }
 
   disableFullYear(): void {
-    this._isFullYear = false;
+    this.#isFullYear = false;
   }
 
   enableFullYear(): void {
-    this._isFullYear = true;
+    this.#isFullYear = true;
   }
 
   disableTime(): void {
-    this._isTime = false;
+    this.#isTime = false;
   }
 
   enableTime(): void {
-    this._isTime = true;
+    this.#isTime = true;
   }
 
   disableDate(): void {
-    this._isDate = false;
+    this.#isDate = false;
   }
 
   enableDate(): void {
-    this._isDate = true;
+    this.#isDate = true;
   }
 
   disableTimePeriod(): void {
-    this._isDate = false;
-    this._isTime = false;
+    this.#isDate = false;
+    this.#isTime = false;
   }
 
   enableTimePeriod(): void {
-    this._isDate = true;
-    this._isTime = true;
+    this.#isDate = true;
+    this.#isTime = true;
   }
 
   // Для построения времени
-  bNumb(numb: number): string {
+  #bNumb(numb: number): string {
     return (numb < 10) ? '0' + numb : `${numb}`;
   }
 
-  bDate(date: Date): string {
-    const day = this.bNumb(date.getDate());
-    const month = this.bNumb(date.getMonth() + 1);
+  #bDate(date: Date): string {
+    const day = this.#bNumb(date.getDate());
+    const month = this.#bNumb(date.getMonth() + 1);
     const fullYear = date.getFullYear();
 
-    const year = this._isFullYear ? fullYear : String(fullYear).slice(2);
+    const year = this.#isFullYear ? fullYear : String(fullYear).slice(2);
 
     return `${day}.${month}.${year}`;
   }
 
-  bTime(date: Date): string {
-    const hours = this.bNumb(date.getHours());
-    const min = this.bNumb(date.getMinutes());
-    const sec = this.bNumb(date.getSeconds());
+  #bTime(date: Date): string {
+    const hours = this.#bNumb(date.getHours());
+    const min = this.#bNumb(date.getMinutes());
+    const sec = this.#bNumb(date.getSeconds());
 
     return `${hours}:${min}:${sec}`;
   }
@@ -136,36 +136,36 @@ class LoggerServices {
     let sTime = '';
     let sDate = '';
 
-    if (this._isDate) sDate = this.bDate(cDate)
-    if (this._isTime) sTime = this.bTime(cDate);
-    if (this._isTime && this._isDate) return `${sTime}  ${sDate}  `;
-    if (this._isTime) return `${sTime}  `;
-    if (this._isDate) return `${sDate}  `;
+    if (this.#isDate) sDate = this.#bDate(cDate)
+    if (this.#isTime) sTime = this.#bTime(cDate);
+    if (this.#isTime && this.#isDate) return `${sTime}  ${sDate}  `;
+    if (this.#isTime) return `${sTime}  `;
+    if (this.#isDate) return `${sDate}  `;
 
     return '';
   }
 
   // Для правильного вывода консоли
-  bConsoleText(mes: any, color: string): void {
-    const colorTxt = this._colors.fg[color];
+  #bConsoleText(mes: any, color: string): void {
+    const colorTxt = this.#colors.fg[color];
 
-    if (!this._isTime && !this._isDate) {
+    if (!this.#isTime && !this.#isDate) {
       console.log(
         colorTxt,
         mes,
-        this._colors.reset
+        this.#colors.reset
       );
     } else {
       console.log(
         colorTxt,
         this.bTimePeriod(),
         mes,
-        this._colors.reset
+        this.#colors.reset
       );
     }
   }
 
-  bConsoleBg(mes: any, color: string): void {
+  #bConsoleBg(mes: any, color: string): void {
     const isWhiteColorArr = [
       'brightBlue',
       'brightRed',
@@ -176,15 +176,15 @@ class LoggerServices {
       ? 'brightWhite'
       : 'black';
 
-    const colorTxt = this._colors.fg[typeColor];
-    const colorBg = this._colors.bg[color];
+    const colorTxt = this.#colors.fg[typeColor];
+    const colorBg = this.#colors.bg[color];
 
-    if (!this._isTime && !this._isDate) {
+    if (!this.#isTime && !this.#isDate) {
       console.log(
         colorBg,
         colorTxt,
         mes,
-        this._colors.reset
+        this.#colors.reset
       );
     } else {
       console.log(
@@ -192,15 +192,15 @@ class LoggerServices {
         colorTxt,
         this.bTimePeriod(),
         mes,
-        this._colors.reset
+        this.#colors.reset
       );
     }
   }
 
-  bConsole(mes: any, color: string): void {
-    this._isBg
-      ? this.bConsoleBg(mes, color)
-      : this.bConsoleText(mes, color);
+  protected bConsole(mes: any, color: string): void {
+    this.#isBg
+      ? this.#bConsoleBg(mes, color)
+      : this.#bConsoleText(mes, color);
   }
 }
 
