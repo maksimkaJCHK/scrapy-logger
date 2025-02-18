@@ -75,6 +75,13 @@ class Logger extends LoggerServices {
   }
 
   // Вывод сообщения в одну строку
+  oneType(mes: any): this {
+    this.clear();
+    this.type(mes);
+
+    return this;
+  }
+
   oneMes(mes: any): this {
     this.clear();
     this.mes(mes);
@@ -82,16 +89,16 @@ class Logger extends LoggerServices {
     return this;
   }
 
-  oneSuccess(mes: any): this {
+  oneInfo(mes: any): this {
     this.clear();
-    this.success(mes);
+    this.info(mes);
 
     return this;
   }
 
-  oneType(mes: any): this {
+  oneSuccess(mes: any): this {
     this.clear();
-    this.type(mes);
+    this.success(mes);
 
     return this;
   }
@@ -111,20 +118,26 @@ class Logger extends LoggerServices {
   }
 
   // Вывод сообщения без времени
+  typeNoTime(mes: any): this {
+    this.bConsole(mes, 'brightWhite', true);
+
+    return this;
+  }
+
   mesNoTime(mes: any): this {
     this.bConsole(mes, 'brightMagenta', true);
 
     return this;
   }
 
-  successNoTime(mes: any): this {
-    this.bConsole(mes, 'brightGreen', true);
+  infoNoTime(mes: any): this {
+    this.bConsole(mes, 'brightBlue', true);
 
     return this;
   }
 
-  typeNoTime(mes: any): this {
-    this.bConsole(mes, 'brightWhite', true);
+  successNoTime(mes: any): this {
+    this.bConsole(mes, 'brightGreen', true);
 
     return this;
   }

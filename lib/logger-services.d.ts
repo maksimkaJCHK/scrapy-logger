@@ -15,6 +15,7 @@ declare class LoggerServices {
     disableTimePeriod(): this;
     enableTimePeriod(): this;
     bTimePeriod(): string;
-    protected bConsole(mes: any, color: string): void;
+    protected bConsoleBg(mes: any, color: string, isTimePeriod?: boolean): void;
+    protected bConsole(mes: any, color: string, isTimePeriod?: boolean): void;
 }
 export default LoggerServices;
