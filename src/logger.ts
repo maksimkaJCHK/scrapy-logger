@@ -37,65 +37,108 @@ class Logger extends LoggerServices {
     return this;
   }
 
-  typeBg(mes: any): void {
-    this.enableBg();
-    this.bConsole(mes, 'brightWhite');
-    this.disableBg();
+  // Вывод сообщения с background-ом
+  typeBg(mes: any): this {
+    this.bConsoleBg(mes, 'brightWhite');
+
+    return this;
   }
 
-  mesBg(mes: any): void {
-    this.enableBg();
-    this.bConsole(mes, 'brightMagenta');
-    this.disableBg();
+  mesBg(mes: any): this {
+    this.bConsoleBg(mes, 'brightMagenta');
+
+    return this;
   }
 
-  infoBg(mes: any): void {
-    this.enableBg();
-    this.bConsole(mes, 'brightBlue');
-    this.disableBg();
+  infoBg(mes: any): this {
+    this.bConsoleBg(mes, 'brightBlue');
+
+    return this;
   }
 
-  successBg(mes: any): void {
-    this.enableBg();
-    this.bConsole(mes, 'brightGreen');
-    this.disableBg();
+  successBg(mes: any): this {
+    this.bConsoleBg(mes, 'brightGreen');
+
+    return this;
   }
 
-  warnBg(mes: any): void {
-    this.enableBg();
-    this.bConsole(mes, 'brightYellow');
-    this.disableBg();
+  warnBg(mes: any): this {
+    this.bConsoleBg(mes, 'brightYellow');
+
+    return this;
   }
 
-  errorBg(mes: any): void {
-    this.enableBg();
-    this.bConsole(mes, 'brightRed');
-    this.disableBg();
+  errorBg(mes: any): this {
+    this.bConsoleBg(mes, 'brightRed');
+
+    return this;
   }
 
-  oneMes(mes: any): void {
+  // Вывод сообщения в одну строку
+  oneMes(mes: any): this {
     this.clear();
     this.mes(mes);
+
+    return this;
   }
 
-  oneSuccess(mes: any): void {
+  oneSuccess(mes: any): this {
     this.clear();
     this.success(mes);
+
+    return this;
   }
 
-  oneType(mes: any): void {
+  oneType(mes: any): this {
     this.clear();
     this.type(mes);
+
+    return this;
   }
 
-  oneWarn(mes: any): void {
+  oneWarn(mes: any): this {
     this.clear();
     this.warn(mes);
+
+    return this;
   }
 
-  oneError(mes: any): void {
+  oneError(mes: any): this {
     this.clear();
     this.error(mes);
+
+    return this;
+  }
+
+  // Вывод сообщения без времени
+  mesNoTime(mes: any): this {
+    this.bConsole(mes, 'brightMagenta', true);
+
+    return this;
+  }
+
+  successNoTime(mes: any): this {
+    this.bConsole(mes, 'brightGreen', true);
+
+    return this;
+  }
+
+  typeNoTime(mes: any): this {
+    this.bConsole(mes, 'brightWhite', true);
+
+    return this;
+  }
+
+  warnNoTime(mes: any): this {
+    this.bConsole(mes, 'brightYellow', true);
+
+    return this;
+  }
+
+  errorNoTime(mes: any): this {
+    this.bConsole(mes, 'brightRed', true);
+
+    return this;
   }
 }
 
