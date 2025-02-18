@@ -9,12 +9,18 @@
     "prod": "rollup -c ./rollup.config.prod.js"
   },
   "keywords": [
+    "type scrapy logger",
     "logger",
+    "logger for terminal",
+    "logger for console",
     "type logger",
     "terminal logger",
     "scrapy logger",
     "simple logger",
-    "node.js logger"
+    "console logger",
+    "terminal logger",
+    "node.js logger",
+    "nodejs logger"
   ],
   "repository": {
     "type": "git",
