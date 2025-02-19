@@ -1,4 +1,4 @@
-import logger from '../lib/ts-logger.js';
+import logger from '../../lib/ts-logger.js';
 
 logger.space();
 logger.typeNoTime('Messages without grouping');
