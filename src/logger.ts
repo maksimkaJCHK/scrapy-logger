@@ -1,75 +1,82 @@
 import LoggerServices from './logger-services.js';
 
 class Logger extends LoggerServices {
+  #typeColor = 'brightWhite';
+  #mesColor = 'brightMagenta';
+  #infoColor = 'brightBlue';
+  #successColor = 'brightGreen';
+  #warnColor = 'brightYellow';
+  #errorColor = 'brightRed';
+
   type(mes: any): this {
-    this.bConsole(mes, 'brightWhite');
+    this.bConsole(mes, this.#typeColor);
 
     return this;
   }
 
   mes(mes: any): this {
-    this.bConsole(mes, 'brightMagenta');
+    this.bConsole(mes, this.#mesColor);
 
     return this;
   }
 
   info(mes: any): this {
-    this.bConsole(mes, 'brightBlue');
+    this.bConsole(mes, this.#infoColor);
 
     return this;
   }
 
   success(mes: any): this {
-    this.bConsole(mes, 'brightGreen');
+    this.bConsole(mes, this.#successColor);
 
     return this;
   }
 
   warn(mes: any): this {
-    this.bConsole(mes, 'brightYellow');
+    this.bConsole(mes, this.#warnColor);
 
     return this;
   }
 
   error(mes: any): this {
-    this.bConsole(mes, 'brightRed');
+    this.bConsole(mes, this.#errorColor);
 
     return this;
   }
 
   // Вывод сообщения с background-ом
   typeBg(mes: any): this {
-    this.bConsoleBg(mes, 'brightWhite');
+    this.bConsoleBg(mes, this.#typeColor);
 
     return this;
   }
 
   mesBg(mes: any): this {
-    this.bConsoleBg(mes, 'brightMagenta');
+    this.bConsoleBg(mes, this.#mesColor);
 
     return this;
   }
 
   infoBg(mes: any): this {
-    this.bConsoleBg(mes, 'brightBlue');
+    this.bConsoleBg(mes, this.#infoColor);
 
     return this;
   }
 
   successBg(mes: any): this {
-    this.bConsoleBg(mes, 'brightGreen');
+    this.bConsoleBg(mes, this.#successColor);
 
     return this;
   }
 
   warnBg(mes: any): this {
-    this.bConsoleBg(mes, 'brightYellow');
+    this.bConsoleBg(mes, this.#warnColor);
 
     return this;
   }
 
   errorBg(mes: any): this {
-    this.bConsoleBg(mes, 'brightRed');
+    this.bConsoleBg(mes, this.#errorColor);
 
     return this;
   }
@@ -119,37 +126,37 @@ class Logger extends LoggerServices {
 
   // Вывод сообщения без времени
   typeNoTime(mes: any): this {
-    this.bConsole(mes, 'brightWhite', true);
+    this.bConsole(mes, this.#typeColor, true);
 
     return this;
   }
 
   mesNoTime(mes: any): this {
-    this.bConsole(mes, 'brightMagenta', true);
+    this.bConsole(mes, this.#mesColor, true);
 
     return this;
   }
 
   infoNoTime(mes: any): this {
-    this.bConsole(mes, 'brightBlue', true);
+    this.bConsole(mes, this.#infoColor, true);
 
     return this;
   }
 
   successNoTime(mes: any): this {
-    this.bConsole(mes, 'brightGreen', true);
+    this.bConsole(mes, this.#successColor, true);
 
     return this;
   }
 
   warnNoTime(mes: any): this {
-    this.bConsole(mes, 'brightYellow', true);
+    this.bConsole(mes, this.#warnColor, true);
 
     return this;
   }
 
   errorNoTime(mes: any): this {
-    this.bConsole(mes, 'brightRed', true);
+    this.bConsole(mes, this.#errorColor, true);
 
     return this;
   }
