@@ -9,3 +9,21 @@
 ```js
 npm install --save-dev ts-logger
 ```
+
+Подключение моего логера осущетвляется следующим способом:
+
+```js
+import logger from 'ts-logger';
+```
+
+Естественно, что в "package.json" нужно добавить следующую строчку:
+
+```js
+"type": "module",
+```
+
+Если вы предпочитаете "сommonJS" модули, то тогда моя библиотека подключается следующим способом:
+
+```js
+const logger = require('ts-logger/lib/cjs/ts-logger.js');
+```
