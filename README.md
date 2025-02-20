@@ -34,27 +34,38 @@ const logger = require('ts-logger/lib/cjs/ts-logger.js');
 
 In order to understand how my logger works, just look at the following [code](https://github.com/maksimkaJCHK/ts-logger/tree/main/examples/rus). A description of the main commands is below:
 
-* ```js
+```js
 logger.type('some kind of message')
 ```
-- a typical message, the message color will be white;
-* ```js
+
+A typical message, the message color will be white.
+
+```js
 logger.info('some kind of message')
 ```
-- an example of an information message, the color will be bright blue;
-* ```js
+
+An example of an information message, the color will be bright blue.
+
+```js
 logger.mes('some message')
 ```
-- an example of a simple message, its color will be bright magenta;
-* ```js
+
+An example of a simple message, its color will be bright magenta.
+
+```js
 logger.success('some message')
 ```
- - an example of a successful message, its color will be bright green;
-* ```js
+
+An example of a successful message, its color will be bright green.
+
+```js
 logger.warn('some kind of message')
 ```
- - an example of a warning, its color will be bright yellow;
-* ```js
+
+An example of a warning, its color will be bright yellow.
+
+```js
 logger.error('some kind of message')
 ```
- - an example of an error message, its color will be bright red.
+
+Аn example of an error message, its color will be bright red.
