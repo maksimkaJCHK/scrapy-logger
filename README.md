@@ -32,7 +32,7 @@ const logger = require('ts-logger/lib/cjs/ts-logger.js');
 
 ## Basic methods
 
-In order to understand how my logger works, just look at the following [code](https://github.com/maksimkaJCHK/ts-logger/tree/main/examples/rus). A description of the main commands is below:
+In order to understand how my logger works, just look at the following [code](https://github.com/maksimkaJCHK/ts-logger/tree/main/examples/eng). A description of the main commands is below:
 
 ```js
 logger.type('some kind of message')
