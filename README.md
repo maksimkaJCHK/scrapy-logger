@@ -69,3 +69,51 @@ logger.error('some kind of message')
 ```
 
 Аn example of an error message, its color will be bright red.
+
+In order to highlight one message in the background, I do this:
+
+```js
+// Включаю background
+logger.enableBg();
+logger.success('Some message')
+logger.disableBg();
+// Отключаю его
+```
+
+Naturally, this is not convenient, in the end I came to the conclusion that it is easier to write appropriate methods for this.
+
+```js
+logger.typeBg('Example of a typical message');
+```
+
+Typical message, background will be white.
+
+```js
+logger.infoBg('Example information message');
+```
+
+An example of an informational message, the background will be bright blue.
+
+```js
+logger.mesBg('Simple message example');
+```
+
+An example of a simple message, its background will be bright magenta.
+
+```js
+logger.successBg('Success message example');
+```
+
+An example of a successful message, its background will be bright green.
+
+```js
+logger.warnBg('Warning example');
+```
+
+An example of a warning, its background will be bright yellow.
+
+```js
+logger.errorBg('Error example');
+```
+
+An example of an error message, its background will be bright red.
