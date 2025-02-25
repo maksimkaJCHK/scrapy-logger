@@ -73,11 +73,11 @@ logger.error('some kind of message')
 In order to highlight one message in the background, I do this:
 
 ```js
-// Включаю background
+// Turn on the background
 logger.enableBg();
 logger.success('Some message')
 logger.disableBg();
-// Отключаю его
+// Disable it
 ```
 
 Naturally, this is not convenient, in the end I came to the conclusion that it is easier to write appropriate methods for this.
