@@ -2,7 +2,7 @@
 
 English | [Русский](./README.ru.md) 
 
-This is a simple logger. Now there are a lot of different loggers, but they are all lackluster. From time to time I do web scraping. One way or another, I spend quite a lot of time in the console, and I would like to properly see the data that I collect. The second reason: all the logic that I saw was not configured the way I wanted. They either displayed the time or did not display it. Few loggers have grouping, you collect data from the page, display it, and the collected information from the page is merged, which is not convenient. I would like to somehow differentiate the collected data. This library is designed to work in a terminal and cannot be used in a browser. For this logger to work, you need "node.js" version 18 (I have version 18.18.0).
+This is a simple logger. Now there are a lot of different loggers, but they are all lackluster. From time to time I do web scraping. One way or another, I spend quite a lot of time in the console, and I would like to properly see the data that I collect. The second reason: all the logic that I saw was not configured the way I wanted. They either displayed the time or did not display it. Few loggers have grouping, you collect data from the page, display it, and the collected information from the page is merged, which is not convenient. I would like to somehow differentiate the collected data. This library is designed to work in a terminal and cannot be used in a browser. For this logger to work, you need "node.js" version 18 and higher (I have version 18.18.0).
 
 ## Installation
 
@@ -70,12 +70,12 @@ logger.error('some kind of message')
 
 Аn example of an error message, its color will be bright red.
 
-In order to highlight one message in the background, I do this:
+Very often a situation arises when one message needs to be highlighted more clearly than all the others. In order to highlight one message in the background, I do this:
 
 ```js
 // Turn on the background
 logger.enableBg();
-logger.success('Some message')
+logger.success('Some message');
 logger.disableBg();
 // Disable it
 ```
@@ -117,3 +117,51 @@ logger.errorBg('Error example');
 ```
 
 An example of an error message, its background will be bright red.
+
+Typically, when all the data has been collected, you need to display statistics on this data in the console. Naturally, statistics on this data should be without time. Previously, I turned off and then turned on the time in the following way:
+
+```js
+// Disable display of time interval
+logger.disableTimePeriod();
+logger.success('Some message');
+logger.enableTimePeriod()
+// Turn on the display of the time interval
+```
+
+As you might guess, this is not convenient, so I wrote the corresponding methods for this:
+
+```js
+logger.typeNoTime('Example of a typical message');
+```
+
+A typical message without a time period, its color will be white.
+
+```js
+logger.infoNoTime('Example information message');
+```
+
+An example of an information message without a time period, its color will be bright blue.
+
+```js
+logger.mesNoTime('Simple message example');
+```
+
+An example of a simple message without a time period, its color will be bright magenta.
+
+```js
+logger.successNoTime('Successful message example');
+```
+
+An example of a successful message without a time period, its color will be bright green.
+
+```js
+logger.warnNoTime('Warning example');
+```
+
+An example of a warning without a time period, its color will be bright yellow.
+
+```js
+logger.errorNoTime('Error example');
+```
+
+An example of an error message without a time period, its color will be bright red.
