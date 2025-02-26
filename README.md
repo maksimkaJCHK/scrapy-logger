@@ -165,3 +165,53 @@ logger.errorNoTime('Error example');
 ```
 
 An example of an error message without a time period, its color will be bright red.
+
+## Fine tuning
+
+By default, my logger displays the date in the following format:
+
+```js
+20:20:56 02.26.25
+```
+
+In order to display the year in full you need:
+
+```js
+logger.enableFullYear();
+```
+
+The messages in this case will look like this:
+
+```js
+20:20:56 02.26.2025
+```
+
+In order to display messages as before, you need to enter:
+
+```js
+logger.disableFullYear();
+```
+
+There are some tasks for which there is no point in displaying the date, for example, we know for sure that it will end in a few hours. To turn off the date you need to:
+
+```js
+logger.disableDate();
+```
+
+If we want to turn it on again, we need to enter:
+
+```js
+logger.enableDate();
+```
+
+It is logical that if it is possible to turn off or turn on the date, then you need to be able to turn on or turn off the time. To turn off the time you need to enter:
+
+```js
+logger.disableTime();
+```
+
+To enable time, you need to enter:
+
+```js
+logger.enableTime();
+```
