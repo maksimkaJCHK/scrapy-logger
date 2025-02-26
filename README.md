@@ -70,7 +70,7 @@ logger.error('some kind of message')
 
 Аn example of an error message, its color will be bright red.
 
-Very often a situation arises when one message needs to be highlighted more clearly than all the others. In order to highlight one message in the background, I do this:
+Very often a situation arises when one message needs to be highlighted more clearly than all the others. Initially, in order to highlight one message in the background, I did this:
 
 ```js
 // Turn on the background
@@ -214,4 +214,28 @@ To enable time, you need to enter:
 
 ```js
 logger.enableTime();
+```
+
+If we completely need to disable both time and date, then we need to enter:
+
+```js
+logger.disableTimePeriod();
+```
+
+To enable time and date, you need to enter:
+
+```js
+logger.enableTimePeriod();
+```
+
+If we want all our messages to be highlighted, then we need to enter:
+
+```js
+logger.enableBg();
+```
+
+If we need to turn off message highlighting, then we need to enter:
+
+```js
+logger.disableBg();
 ```
