@@ -1,4 +1,4 @@
-import logger from '../../lib/ts-logger.js';
+import logger from '../../lib/scrapy-logger.js';
 
 const delayF = (delay = 400) => {
   return new Promise((resolve, reject) => {
