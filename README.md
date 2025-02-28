@@ -27,7 +27,7 @@ Naturally, you need to add the following line to “package.json”:
 If you prefer "commonJS" modules, then my library is connected in the following way:
 
 ```js
-const logger = require('scrapy-logger/lib/cjs/scrapy-logger.js');
+const logger = require('scrapy-logger/lib/cjs/scrapy-logger.cjs');
 ```
 
 ## Basic methods

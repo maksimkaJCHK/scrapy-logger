@@ -27,7 +27,7 @@ import logger from 'scrapy-logger';
 Если вы предпочитаете "сommonJS" модули, то тогда моя библиотека подключается следующим способом:
 
 ```js
-const logger = require('scrapy-logger/lib/cjs/scrapy-logger.js');
+const logger = require('scrapy-logger/lib/cjs/scrapy-logger.cjs');
 ```
 
 ## Основные методы
