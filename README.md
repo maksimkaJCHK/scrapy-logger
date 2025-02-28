@@ -239,3 +239,247 @@ If we need to turn off message highlighting, then we need to enter:
 ```js
 logger.disableBg();
 ```
+
+## Grouping methods
+
+If we collect page-by-page information, then when it is displayed in the terminal, it merges, it makes sense to group it. This is done in the following way.
+
+```js
+logger.group('Group title');
+logger.type('Typical message example');
+logger.info('Example information message');
+logger.mes('Simple message example');
+logger.success('Successful message example');
+logger.warn('Example warning');
+logger.error('Example error');
+logger.endGroup();
+```
+
+The starting point for grouping messages is the "logger.group" method, and the end point is the "logger.endGroup()" method. Everything between these methods will be displayed in the terminal with a slight indentation.
+
+If we need to add indentation between groups, then the following method is used for this:
+
+```js
+logger.space();
+```
+
+This method adds an empty line in the terminal.
+
+## Output messages on one line.
+
+Some people don't like to display all the information in the terminal. For example, we collect information from a website, there are about 1000 pages, and there is no point in displaying all the information. It makes sense to display information only from the page that we are currently processing. The following methods are used for this:
+
+```js
+logger.oneType('Some kind of message')
+```
+
+Typical message, message color will be white.
+
+```js
+logger.oneInfo('Some message')
+```
+
+An example of an information message, the color will be bright blue.
+
+```js
+logger.oneMes('Some message')
+```
+
+An example of a simple message, its color will be bright magenta.
+
+```js
+logger.oneSuccess('Some message')
+```
+
+An example of a successful message, its color will be bright green.
+
+```js
+logger.oneWarn('Some message')
+```
+
+An example of a warning, its color will be bright yellow.
+
+```js
+logger.oneError('Some kind of message')
+```
+
+An example of an error message, its color will be bright red.
+
+These methods are based on:
+
+```js
+console.clear();
+```
+
+All console output above this method will be deleted. And everything below will remain accordingly. In order to see how it works, I advise you to look at the following [code](https://github.com/maksimkaJCHK/ts-logger/blob/main/examples/eng/example-one-in-row.js).
+
+## Code examples
+
+```js
+logger.space();
+logger.typeNoTime('Messages without grouping');
+logger.space();
+
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+
+logger
+  .space()
+  .typeNoTime('I turn on the display of the full year (logger.enableFullYear())')
+  .space();
+
+logger.enableFullYear();
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+
+logger.space()
+  .typeNoTime('I turn off the full year display (logger.disableFullYear())')
+  .space();
+
+logger.disableFullYear();
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+
+logger.space()
+  .typeNoTime('Below are grouped messages')
+  .space();
+
+logger.group('Example messages');
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.disableTime();
+
+logger.group('Example of a message without time (logger.disableTime())');
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.disableDate();
+
+logger.group('Example message without date (logger.disableDate())');
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.enableTime();
+
+logger.group('I turn on the time (logger.enableTime())');
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.enableDate();
+
+logger.group('I include the date (logger.enableDate())');
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.disableTimePeriod();
+
+logger.group('I disable the time period (logger.disableTimePeriod())');
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.enableTimePeriod();
+
+logger.group("I include the time period (logger.enableTimePeriod())");
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.enableBg();
+
+logger.group('I turn on the background (logger.enableBg())');
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.disableBg();
+
+logger.group("I turn off the background (logger.disableBg())");
+logger.type('Example of a typical message (logger.type())');
+logger.info('Example of an information message (logger.info())');
+logger.mes('Example of a simple message (logger.mes())');
+logger.success('Example of a successful message (logger.success())');
+logger.warn('Warning example (logger.warn())');
+logger.error('Error example (logger.error())');
+logger.endGroup();
+
+logger.space();
+
+logger.group("Example of messages with background");
+logger.typeBg('Example of a typical message (logger.typeBg())');
+logger.infoBg('Example of an information message (logger.infoBg())');
+logger.mesBg('Example of a simple message (logger.mesBg())');
+logger.successBg('Example of a successful message (logger.successBg())');
+logger.warnBg('Warning example (logger.warnBg())');
+logger.errorBg('Error example (logger.errorBg())');
+logger.endGroup();
+
+logger.space();
+
+logger.group("Example of messages without time period");
+logger.typeNoTime('Example of a typical message (logger.typeNoTime())');
+logger.infoNoTime('Example of an information message (logger.infoNoTime())');
+logger.mesNoTime('Example of a simple message (logger.mesNoTime())');
+logger.successNoTime('Example of a successful message (logger.successNoTime())');
+logger.warnNoTime('Warning example (logger.warnNoTime())');
+logger.errorNoTime('Error example (logger.errorNoTime())');
+logger.endGroup();
+```

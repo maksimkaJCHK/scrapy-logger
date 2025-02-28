@@ -239,3 +239,247 @@ logger.enableBg();
 ```js
 logger.disableBg();
 ```
+
+## Методы группировки
+
+Если мы собираем постраничную информацию, то при ее выводе в терминале, она сливается, имеет смысл ее сгруппировать. Это делается следующим способом.
+
+```js
+logger.group('Заголовок для группы');
+logger.type('Пример типового сообщения');
+logger.info('Пример информационного сообщения');
+logger.mes('Пример простого сообщения');
+logger.success('Пример успешного сообщения');
+logger.warn('Пример предупреждения');
+logger.error('Пример ошибки');
+logger.endGroup();
+```
+
+Началом для группировки сообщений слушит метод "logger.group", а концом служит метод "logger.endGroup()". Всё, что находится между этими методами, будет отображаться в терминале с небольшим отступом.
+
+Если нам нужно добавить отступ между группами, то для этого служит следующим метод:
+
+```js
+logger.space();
+```
+
+Этот метода добавляет пустую строку в терминале.
+
+## Вывод сообщений в одну строку.
+
+Некторорым людям не нравится отображать всю информацию в терминале. К примеру мы собираем информацию, с сайта, там около 1000 страниц, и нет смысла выводить всю информацию. Имеет смысл вывести информацию только с той страницы, которую мы обрабатываем в данный момент. Для этого служат следующие методы:
+
+```js
+logger.oneType('Какое-то сообщение')
+```
+
+Типовое сообщение, цвет сообщения будет белым.
+
+```js
+logger.oneInfo('Какое-то сообщение')
+```
+
+Пример информационного сообщения, цвет будет ярко-синим.
+
+```js
+logger.oneMes('Какое-то сообщение')
+```
+
+Пример простого сообщения, его цвет будет яркий магента.
+
+```js
+logger.oneSuccess('Какое-то сообщение')
+```
+
+Пример успешного сообщения, его цвет будет ярко-зелёным.
+
+```js
+logger.oneWarn('Какое-то сообщение')
+```
+
+Пример предупреждения, его цвет будет якро-жёлтым.
+
+```js
+logger.oneError('Какое-то сообщение')
+```
+
+Пример сообщения об ошибки, его цвет будет ярко красным.
+
+В основе данных методов лежит:
+
+```js
+console.clear();
+```
+
+Весь вывод в консоль, который будет находиться выше этого метода будет удален. А все, что ниже соответственно останется. Для того, чтобы посмотреть как это работает я советую посмотреть следующий [код](https://github.com/maksimkaJCHK/ts-logger/blob/main/examples/rus/example-one-in-row.js).
+
+## Примеры кода
+
+```js
+logger.space();
+logger.typeNoTime('Сообщения без группировки');
+logger.space();
+
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+
+logger
+  .space()
+  .typeNoTime('Включаю отображение полного года (logger.enableFullYear())')
+  .space();
+
+logger.enableFullYear();
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+
+logger.space()
+  .typeNoTime('Отключаю отображение полного года (logger.disableFullYear())')
+  .space();
+
+logger.disableFullYear();
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+
+logger.space()
+  .typeNoTime('Ниже идут сгруппированные сообщения')
+  .space();
+
+logger.group('Пример сообщений');
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.disableTime();
+
+logger.group('Пример сообщени без времени (logger.disableTime())');
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.disableDate();
+
+logger.group('Пример сообщени без даты (logger.disableDate())');
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.enableTime();
+
+logger.group('Включаю время (logger.enableTime())');
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.enableDate();
+
+logger.group('Включаю дату (logger.enableDate())');
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.disableTimePeriod();
+
+logger.group('Отключаю временной период (logger.disableTimePeriod())');
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.enableTimePeriod();
+
+logger.group("Включаю временной период (logger.enableTimePeriod())");
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.enableBg();
+
+logger.group('Включаю background (logger.enableBg())');
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+logger.endGroup();
+
+logger.space();
+logger.disableBg();
+
+logger.group("Отключаю background (logger.disableBg())");
+logger.type('Пример типового сообщения (logger.type())');
+logger.info('Пример информационного сообщения (logger.info())');
+logger.mes('Пример простого сообщения (logger.mes())');
+logger.success('Пример успешного сообщения (logger.success())');
+logger.warn('Пример предупреждения (logger.warn())');
+logger.error('Пример ошибки (logger.error())');
+logger.endGroup();
+
+logger.space();
+
+logger.group("Пример сообщений с background-ом");
+logger.typeBg('Пример типового сообщения (logger.typeBg())');
+logger.infoBg('Пример информационного сообщения (logger.infoBg())');
+logger.mesBg('Пример простого сообщения (logger.mesBg())');
+logger.successBg('Пример успешного сообщения (logger.successBg())');
+logger.warnBg('Пример предупреждения (logger.warnBg())');
+logger.errorBg('Пример ошибки (logger.errorBg())');
+logger.endGroup();
+
+logger.space();
+
+logger.group("Пример сообщений без временного периода");
+logger.typeNoTime('Пример типового сообщения (logger.typeNoTime())');
+logger.infoNoTime('Пример информационного сообщения (logger.infoNoTime())');
+logger.mesNoTime('Пример простого сообщения (logger.mesNoTime())');
+logger.successNoTime('Пример успешного сообщения (logger.successNoTime())');
+logger.warnNoTime('Пример предупреждения (logger.warnNoTime())');
+logger.errorNoTime('Пример ошибки (logger.errorNoTime())');
+logger.endGroup();
+```
