@@ -1,4 +1,4 @@
-# Ts-logger
+# Scrapy logger
 
 [English](./README.md) | Русский
 
@@ -9,13 +9,13 @@
 Для установки логера нужно набрать в консоли:
 
 ```js
-npm install --save-dev ts-logger
+npm install --save-dev scrapy-logger
 ```
 
 Подключение логера осуществляется следующим способом:
 
 ```js
-import logger from 'ts-logger';
+import logger from 'scrapy-logger';
 ```
 
 Естественно, что в "package.json" нужно добавить следующую строчку:
@@ -27,12 +27,12 @@ import logger from 'ts-logger';
 Если вы предпочитаете "сommonJS" модули, то тогда моя библиотека подключается следующим способом:
 
 ```js
-const logger = require('ts-logger/lib/cjs/ts-logger.js');
+const logger = require('scrapy-logger/lib/cjs/scrapy-logger.js');
 ```
 
 ## Основные методы
 
-Для того, чтобы понять как работает логер, достаточно посмотреть следующий [код](https://github.com/maksimkaJCHK/ts-logger/tree/main/examples/rus). Описание основных команд находится ниже:
+Для того, чтобы понять как работает логер, достаточно посмотреть следующий [код](https://github.com/maksimkaJCHK/scrapy-logger/tree/main/examples/rus). Описание основных команд находится ниже:
 
 ```js
 logger.type('Какое-то сообщение')
@@ -311,7 +311,7 @@ logger.oneError('Какое-то сообщение')
 console.clear();
 ```
 
-Весь вывод в консоль, который будет находиться выше этого метода будет удален. А все, что ниже соответственно останется. Для того, чтобы посмотреть как это работает я советую посмотреть следующий [код](https://github.com/maksimkaJCHK/ts-logger/blob/main/examples/rus/example-one-in-row.js).
+Весь вывод в консоль, который будет находиться выше этого метода будет удален. А все, что ниже соответственно останется. Для того, чтобы посмотреть как это работает я советую посмотреть следующий [код](https://github.com/maksimkaJCHK/scrapy-logger/blob/main/examples/rus/example-one-in-row.js).
 
 ## Примеры кода
 
