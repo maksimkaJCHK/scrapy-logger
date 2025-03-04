@@ -1,6 +1,7 @@
 import LoggerServices from './logger-services.js';
 declare class Logger extends LoggerServices {
     #private;
+    changeTheme(): this;
     type(mes: any): this;
     mes(mes: any): this;
     info(mes: any): this;

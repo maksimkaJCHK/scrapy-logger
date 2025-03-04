@@ -196,9 +196,14 @@ class LoggerServices {
 
   protected bConsoleBg(mes: any, color: string, isTimePeriod: boolean = false): void {
     const isWhiteColorArr = [
+      // Яркие цвета
       'brightBlue',
       'brightRed',
-      'brightMagenta'
+      'brightMagenta',
+      // Обычные цвета
+      'magenta',
+      'blue',
+      'red'
     ];
 
     const typeColor = isWhiteColorArr.includes(color)

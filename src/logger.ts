@@ -24,7 +24,8 @@ class Logger extends LoggerServices {
   }
 
   changeTheme(): this {
-    this.#theme = this.#theme === 'bright' ? 'ordinary' : 'bright';
+    const isBright = (this.#theme === 'bright');
+    this.#theme =  isBright ? 'ordinary' : 'bright';
 
     return this;
   }
