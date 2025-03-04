@@ -1,6 +1,7 @@
 import LoggerServices from './logger-services.js';
 
 class Logger extends LoggerServices {
+  // Яркие цвета
   #typeColor = 'brightWhite';
   #mesColor = 'brightMagenta';
   #infoColor = 'brightBlue';
@@ -8,75 +9,107 @@ class Logger extends LoggerServices {
   #warnColor = 'brightYellow';
   #errorColor = 'brightRed';
 
+  // Обычные цвета
+  #typeOrdinaryColor = 'white';
+  #mesOrdinaryColor = 'magenta';
+  #infoOrdinaryColor = 'blue';
+  #successOrdinaryColor = 'green';
+  #warnOrdinaryColor = 'yellow';
+  #errorOrdinaryColor = 'red';
+
+  #theme = 'bright';
+
+  #bTheme(brightColor: string, ordinaryColor: string) {
+    return this.#theme === 'bright' ? brightColor : ordinaryColor;
+  }
+
+  changeTheme(): this {
+    this.#theme = this.#theme === 'bright' ? 'ordinary' : 'bright';
+
+    return this;
+  }
+
   type(mes: any): this {
-    this.bConsole(mes, this.#typeColor);
+    const color = this.#bTheme(this.#typeColor, this.#typeOrdinaryColor);
+    this.bConsole(mes, color);
 
     return this;
   }
 
   mes(mes: any): this {
-    this.bConsole(mes, this.#mesColor);
+    const color = this.#bTheme(this.#mesColor, this.#mesOrdinaryColor);
+    this.bConsole(mes, color);
 
     return this;
   }
 
   info(mes: any): this {
-    this.bConsole(mes, this.#infoColor);
+    const color = this.#bTheme(this.#infoColor, this.#infoOrdinaryColor);
+    this.bConsole(mes, color);
 
     return this;
   }
 
   success(mes: any): this {
-    this.bConsole(mes, this.#successColor);
+    const color = this.#bTheme(this.#successColor, this.#successOrdinaryColor);
+    this.bConsole(mes, color);
 
     return this;
   }
 
   warn(mes: any): this {
-    this.bConsole(mes, this.#warnColor);
+    const color = this.#bTheme(this.#warnColor, this.#warnOrdinaryColor);
+    this.bConsole(mes, color);
 
     return this;
   }
 
   error(mes: any): this {
-    this.bConsole(mes, this.#errorColor);
+    const color = this.#bTheme(this.#errorColor, this.#errorOrdinaryColor);
+    this.bConsole(mes, color);
 
     return this;
   }
 
   // Вывод сообщения с background-ом
   typeBg(mes: any): this {
-    this.bConsoleBg(mes, this.#typeColor);
+    const color = this.#bTheme(this.#typeColor, this.#typeOrdinaryColor);
+    this.bConsoleBg(mes, color);
 
     return this;
   }
 
   mesBg(mes: any): this {
-    this.bConsoleBg(mes, this.#mesColor);
+    const color = this.#bTheme(this.#mesColor, this.#mesOrdinaryColor);
+    this.bConsoleBg(mes, color);
 
     return this;
   }
 
   infoBg(mes: any): this {
-    this.bConsoleBg(mes, this.#infoColor);
+    const color = this.#bTheme(this.#infoColor, this.#infoOrdinaryColor);
+    this.bConsoleBg(mes, color);
 
     return this;
   }
 
   successBg(mes: any): this {
-    this.bConsoleBg(mes, this.#successColor);
+    const color = this.#bTheme(this.#successColor, this.#successOrdinaryColor);
+    this.bConsoleBg(mes, color);
 
     return this;
   }
 
   warnBg(mes: any): this {
-    this.bConsoleBg(mes, this.#warnColor);
+    const color = this.#bTheme(this.#warnColor, this.#warnOrdinaryColor);
+    this.bConsoleBg(mes, color);
 
     return this;
   }
 
   errorBg(mes: any): this {
-    this.bConsoleBg(mes, this.#errorColor);
+    const color = this.#bTheme(this.#errorColor, this.#errorOrdinaryColor);
+    this.bConsoleBg(mes, color);
 
     return this;
   }
@@ -126,37 +159,43 @@ class Logger extends LoggerServices {
 
   // Вывод сообщения без времени
   typeNoTime(mes: any): this {
-    this.bConsole(mes, this.#typeColor, true);
+    const color = this.#bTheme(this.#typeColor, this.#typeOrdinaryColor);
+    this.bConsole(mes, color, true);
 
     return this;
   }
 
   mesNoTime(mes: any): this {
-    this.bConsole(mes, this.#mesColor, true);
+    const color = this.#bTheme(this.#mesColor, this.#mesOrdinaryColor);
+    this.bConsole(mes, color, true);
 
     return this;
   }
 
   infoNoTime(mes: any): this {
-    this.bConsole(mes, this.#infoColor, true);
+    const color = this.#bTheme(this.#infoColor, this.#infoOrdinaryColor);
+    this.bConsole(mes, color, true);
 
     return this;
   }
 
   successNoTime(mes: any): this {
-    this.bConsole(mes, this.#successColor, true);
+    const color = this.#bTheme(this.#successColor, this.#successOrdinaryColor);
+    this.bConsole(mes, color, true);
 
     return this;
   }
 
   warnNoTime(mes: any): this {
-    this.bConsole(mes, this.#warnColor, true);
+    const color = this.#bTheme(this.#warnColor, this.#warnOrdinaryColor);
+    this.bConsole(mes, color, true);
 
     return this;
   }
 
   errorNoTime(mes: any): this {
-    this.bConsole(mes, this.#errorColor, true);
+    const color = this.#bTheme(this.#errorColor, this.#errorOrdinaryColor);
+    this.bConsole(mes, color, true);
 
     return this;
   }
