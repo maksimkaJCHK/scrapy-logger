@@ -74,9 +74,9 @@ Very often a situation arises when one message needs to be highlighted more clea
 
 ```js
 // Turn on the background
-logger.enableBg();
-logger.success('Some message');
-logger.disableBg();
+logger.enableBg()
+  .success('Some message')
+  .disableBg();
 // Disable it
 ```
 
@@ -312,6 +312,66 @@ console.clear();
 ```
 
 All console output above this method will be deleted. And everything below will remain accordingly. In order to see how it works, I advise you to look at the following [code](https://github.com/maksimkaJCHK/scrapy-logger/blob/main/examples/eng/example-one-in-row.js).
+
+## Switching theme
+
+I love bright colors and the logger comes with a bright theme enabled by default. I admit that this will not suit everyone, so below I describe how to switch the topic.
+
+```js
+logger.changeTheme();
+```
+
+This method switches the theme from flashy to normal and back again.
+
+```js
+logger.brightTheme();
+```
+
+This method includes a vibrant theme.
+
+```js
+logger.ordinaryTheme();
+```
+
+This method includes a regular theme.
+
+## Getting time
+
+Imagine this situation: a spider is collecting data, and suddenly some error occurs. Very often a situation arises that errors need to be recorded in logs, and it is desirable that errors are recorded in logs in the same way as they are displayed in the terminal. To make it easier to navigate them. In order to avoid the need to generate time again, you can use the following method:
+
+```js
+const time = logger.bTimePeriod();
+```
+
+The "time" variable will contain the time in the same format as it is displayed by my layer. After this method, other methods cannot be called. It returns the time, not the library instance.
+
+```js
+logger.bTimePeriod()
+  .space()
+  .typeNoTime('Some kind of message.');
+// There will be an error
+```
+
+This call will produce an error.
+
+```js
+const time = logger.bTimePeriod();
+
+logger.space()
+  .typeNoTime('Some kind of message.');
+// You can call something else
+```
+
+With such a call everything will go fine. It is quite natural that if we do something like this, the time will not be displayed:
+
+```js
+logger.disableTime()
+  .disableDate();
+// Or
+logger.disableTimePeriod();
+
+const time = logger.bTimePeriod();
+```
 
 ## Code examples
 
