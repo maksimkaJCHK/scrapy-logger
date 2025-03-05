@@ -174,9 +174,9 @@ class LoggerServices {
   }
 
   // Для правильного вывода консоли
-  #bConsoleText(mes: any, color: string, isTimePeriod: boolean = false): void {
+  #bConsoleText(mes: any, color: string, isTimePeriod: boolean = true): void {
     const colorTxt = this.#colors.fg[color];
-    const condition = (!this.#isTime && !this.#isDate) || isTimePeriod;
+    const condition = (!this.#isTime && !this.#isDate) || !isTimePeriod;
 
     if (condition) {
       console.log(
@@ -194,7 +194,7 @@ class LoggerServices {
     }
   }
 
-  protected bConsoleBg(mes: any, color: string, isTimePeriod: boolean = false): void {
+  protected bConsoleBg(mes: any, color: string, isTimePeriod: boolean = true): void {
     const isWhiteColorArr = [
       // Яркие цвета
       'brightBlue',
@@ -213,7 +213,7 @@ class LoggerServices {
     const colorTxt = this.#colors.fg[typeColor];
     const colorBg = this.#colors.bg[color];
 
-    const condition = (!this.#isTime && !this.#isDate) || isTimePeriod;
+    const condition = (!this.#isTime && !this.#isDate) || !isTimePeriod;
 
     if (condition) {
       console.log(
@@ -233,7 +233,7 @@ class LoggerServices {
     }
   }
 
-  protected bConsole(mes: any, color: string, isTimePeriod: boolean = false): void {
+  protected bConsole(mes: any, color: string, isTimePeriod: boolean = true): void {
     this.#isBg
       ? this.bConsoleBg(mes, color, isTimePeriod)
       : this.#bConsoleText(mes, color, isTimePeriod);

@@ -1,8 +1,8 @@
 import logger from '../../lib/scrapy-logger.js';
 
-logger.space();
-logger.typeNoTime('Сообщения без группировки');
-logger.space();
+logger.space()
+  .typeNoTime('Сообщения без группировки')
+  .space();
 
 logger.type('Пример типового сообщения (logger.type())');
 logger.info('Пример информационного сообщения (logger.info())');
@@ -169,13 +169,14 @@ logger.endGroup();
 
 logger.changeTheme();
 
-logger.space();
-logger.typeNoTime('Ниже идёт обычная тема, не яркая');
-logger.space();
+logger.space()
+  .space()
+  .space()
+  .typeNoTime('Ниже идёт обычная тема, не яркая (logger.changeTheme())')
 
-logger.space();
-logger.typeNoTime('Сообщения без группировки');
-logger.space();
+logger.space()
+  .typeNoTime('Сообщения без группировки')
+  .space();
 
 logger.type('Пример типового сообщения (logger.type())');
 logger.info('Пример информационного сообщения (logger.info())');
